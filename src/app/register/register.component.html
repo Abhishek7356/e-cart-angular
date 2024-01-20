@@ -1,0 +1,37 @@
+<div class="container my-5">
+    <div style="flex-wrap: wrap;" class="d-flex justify-content-center gap-4">
+        <img style="flex: 1;width: 400px;height: 500px;object-fit: contain;"
+            src="https://www.smartswift33.com/storage/about/about-1-2-1654758782.png" alt="">
+        <div class="d-flex flex-column justify-content-center bg-light p-5 shadow rounded"
+            style="flex: 1;width: 400px;">
+            <h2 class="text-center mb-3 fw-bold">Register</h2>
+            <form [formGroup]="registerForm">
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">User Name</label>
+                    <input formControlName="username" type="text" class="form-control" id="exampleInputEmail1"
+                        aria-describedby="emailHelp">
+                    <p *ngIf="this.registerForm.get('username')?.errors &&
+                        this.registerForm.get('username')?.touched" class="text-danger">*Invalid Username Format</p>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                    <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1"
+                        aria-describedby="emailHelp">
+                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    <p *ngIf="this.registerForm.get('email')?.errors &&
+                        this.registerForm.get('email')?.touched" class="text-danger">*Invalid email Format</p>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                    <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1">
+                    <p *ngIf="this.registerForm.get('password')?.errors &&
+                        this.registerForm.get('password')?.touched" class="text-danger">*Invalid password Format</p>
+                </div>
+                <div class="text-center">
+                    <a class="fw-bold" routerLink="/user/login">Allready have an account</a>
+                </div>
+                <button (click)="register()" type="submit" class="btn btn-primary fw-bold">Register</button>
+            </form>
+        </div>
+    </div>
+</div>

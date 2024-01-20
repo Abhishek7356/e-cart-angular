@@ -1,0 +1,30 @@
+<div class="container my-5">
+    <div style="flex-wrap: wrap;" class="d-flex justify-content-center gap-4">
+        <img style="flex: 1;width: 400px;height: 500px;object-fit: contain;"
+            src="https://www.smartswift33.com/storage/about/about-1-2-1654758782.png" alt="">
+        <div class="d-flex flex-column justify-content-center bg-light p-5 shadow rounded"
+            style="flex: 1;width: 400px;">
+            <h2 class="text-center mb-3 fw-bold">Login</h2>
+            <form [formGroup]="loginForm">
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                    <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1"
+                        aria-describedby="emailHelp">
+                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    <p *ngIf="this.loginForm.get('email')?.errors &&
+                        this.loginForm.get('email')?.touched" class="text-danger">*Invalid Email Format</p>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                    <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1">
+                    <p *ngIf="this.loginForm.get('password')?.errors &&
+                        this.loginForm.get('password')?.touched" class="text-danger">*Invalid Password Format</p>
+                </div>
+                <div class="text-center">
+                    <a class="fw-bold" routerLink="/user/register">New User</a>
+                </div>
+                <button (click)="login()" type="submit" class="btn btn-primary fw-bold">Login</button>
+            </form>
+        </div>
+    </div>
+</div>

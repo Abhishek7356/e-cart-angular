@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@1,300;1,400&family=Kdam+Thmor+Pro&family=Montserrat:ital,wght@0,300;0,600;0,700;0,800;1,800&family=Open+Sans:wght@500&family=Oswald:wght@300;400;500;600&family=Quicksand:wght@400;500&family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400&family=Roboto&family=Source+Sans+3:wght@200;300;400;500;600;700&family=Urbanist:ital,wght@0,100;0,200;0,300;1,300;1,400&family=Vina+Sans&display=swap');
+@import 'ngx-toastr/toastr';
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}

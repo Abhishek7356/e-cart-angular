@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary" style="position: sticky;top: 0px;z-index: 2;">
+    <div class="container-fluid">
+        <a class="navbar-brand fw-bold d-flex align-items-center" routerLink="/"><img
+                style="width: 60px; height: 60px;border-radius: 50%; object-fit: cover;"
+                src="https://endlessicons.com/wp-content/uploads/2012/11/shopping-cart-icon.png" alt="">E-Cart</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+                <form class="d-flex" role="search">
+                    <input (keyup)="search($event)" class="form-control me-2" type="search" placeholder="Search"
+                        aria-label="Search">
+                </form>
+                <li class="nav-item">
+                    <a class="nav-link active fw-bold" aria-current="page" routerLink="/user/wishlist"><i
+                            class="fa-solid fa-heart mx-2 fs-4 text-danger"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fw-bold" routerLink="/user/cart"><i
+                            class="fa-solid fa-cart-plus mx-2 fs-4"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fw-bold" routerLink="/user/login">Login<i
+                            class="fa-solid fa-arrow-right-to-bracket ms-1"></i></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

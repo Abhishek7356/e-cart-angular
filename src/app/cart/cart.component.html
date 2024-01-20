@@ -1,0 +1,76 @@
+<div *ngIf="cartItems.length == 0">
+    <div class="container d-flex flex-column justify-content-center mb-3 align-items-center gap-4">
+        <img src="https://cdni.iconscout.com/illustration/premium/thumb/empty-cart-2130356-1800917.png" alt="">
+        Empty Cart !
+        <button routerLink="/" class="btn btn-outline-dark">Continue Shopping</button>
+    </div>
+</div>
+<div class="container my-5">
+    <div class="row d-flex align-items-start">
+        <div class="col-9">
+            <table class="table shadow-sm">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Image</th>
+                        <th scope="col">Quanitiy</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of cartItems; index as i" class="p-3">
+                        <th scope="row">{{i+1}}</th>
+                        <td>{{item.title}}</td>
+                        <td><img style="width: 70px;height: 70px; object-fit: contain;" src={{item.image}} alt=""></td>
+                        <td>
+                            <div class="d-flex gap-2">
+                                <button [hidden]="item.quantity == 1" (click)="handleDecrement(item)" class=" btn btn-outline-primary
+                                    fw-bold">-</button>
+                                <input type="text" [value]="item.quantity" disabled
+                                    class="form-control fw-bold text-center" style="width: 50px;">
+                                <button (click)="handleIncrement(item)"
+                                    class="btn btn-outline-primary fw-bold">+</button>
+                            </div>
+                        </td>
+                        <td>{{item.price}}$</td>
+                        <td>
+                            <div class="d-flex gap-2">
+                                <button class="btn btn-primary">edit</button>
+                                <button (click)="handleDelete(item._id)" class="btn btn-danger">delete</button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-3  d-flex gap-3 shadow-sm p-5 flex-column justify-content-center align-items-center">
+            <h4>Cart Summary</h4>
+            <h6>Total Price : ${{totalPrice}}</h6>
+            <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">Checkout</button>
+        </div>
+    </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content px-2">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Checkout Details</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-primary">
+                    Enter your details
+                    <input type="text" class="form-control my-3" placeholder="name">
+                    <input type="text" class="form-control mb-3" placeholder="Ph No">
+                    <input type="text" class="form-control mb-3" placeholder="Address">
+                    <h4 class="mb-3 fw-bold">Total Price : ${{totalPrice}}</h4>
+                </div>
+                <ngx-paypal *ngIf="showPayPal" [config]="payPalConfig"></ngx-paypal>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" (click)="makePay()">Make Payment</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

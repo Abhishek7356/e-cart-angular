@@ -1,0 +1,60 @@
+<!-- Header-->
+<header class="">
+    <div id="carouselExample" class="carousel slide">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img style="height: 90vh;object-fit: cover;object-position: left;"
+                    src="https://tipsmake.com/data/images/collection-of-the-most-beautiful-fashion-banners-picture-32-8h2n0YQtr.jpg"
+                    class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img style="height: 90vh;object-fit: cover;object-position: left;"
+                    src="https://th.bing.com/th/id/R.76fc452da5c43dfd56d5ecb16d2bfaee?rik=O3qywCkjVryi5Q&riu=http%3a%2f%2fcitywestshoppingcentre.com%2fapp%2fuploads%2f2017%2f04%2fWoman-Shopping-Banner.jpg&ehk=f51KA0DgiwyUWBfb1HSSlawurrqZaQVx%2fMpZlmiBwy8%3d&risl=&pid=ImgRaw&r=0"
+                    class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img style="height: 90vh;object-fit: cover;object-position: right;"
+                    src="https://litb-cgis.rightinthebox.com/imagegy/202101/45971ac53ead4ab18da4a056a05f60c3en1.gif"
+                    class="d-block w-100" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</header>
+<!-- Section-->
+<section class="py-5">
+    <!-- <input type="text" class="form-control mx-auto w-50" placeholder="Search for product"> -->
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <div *ngFor="let product of allProducts | filter : searchKey : 'title'" class="col mb-5 ">
+                <div class="card h-100 shadow-sm py-2">
+                    <!-- Product image-->
+                    <img class="card-img-top" src={{product.image}} alt="..."
+                        style="height: 100px;object-fit: contain;" />
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder">{{product.title.slice(1,20)}}...</h5>
+                            <!-- Product price-->
+                            ${{product.price}}
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center"><a class="btn btn-outline-dark mt-auto"
+                                routerLink="/view/{{product._id}}">View
+                                Product</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

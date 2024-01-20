@@ -1,0 +1,43 @@
+<div>
+    <div class="container my-4">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <div *ngFor="let item of allWishlistProduct" class="col mb-5 ">
+                <div class="card h-100 shadow-sm">
+                    <!-- Product image-->
+                    <img class="card-img-top py-2" src={{item.image}} alt="..."
+                        style="height: 100px;object-fit: contain;" />
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder">{{item.title.slice(1,20)}}</h5>
+                            <!-- Product price-->
+                            ${{item.price}}
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="justify-content-between d-flex gap-2">
+                            <button (click)="handleDelete(item._id)" class="btn btn-outline-primary"><i
+                                    class="fa-solid fa-trash mx-2 fs-6"></i></button>
+                            <button class="btn btn-outline-primary"><i
+                                    class="fa-solid fa-cart-plus mx-2 fs-6"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+    <div *ngIf="allWishlistProduct.length == 0"
+        class="container d-flex flex-column justify-content-center mb-3 align-items-center gap-4">
+        <img src="https://i1.wp.com/www.huratips.com/wp-content/uploads/2019/04/empty-cart.png?fit=603%2C288&ssl=1"
+            alt="">
+        Empty Wishlist !
+        <button routerLink="/" class="btn btn-outline-dark">Continue Shopping</button>
+    </div>
+</div>
